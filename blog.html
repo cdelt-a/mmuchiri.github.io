@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — [Your Name]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=Space+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#111009;--surface:#1A1814;--surface2:#221F19;
+      --text:#F0EAE0;--muted:#9A9080;--faint:#5C5548;
+      --amber:#D4923A;--amber-d:#8A5A1A;--amber-g:#F0B060;
+      --green:#4A7C5F;--green-d:#2A4A38;
+      --border:#2E2A24;--border2:#3A362E;
+      --serif:'Fraunces',Georgia,serif;
+      --body:'Source Serif 4',Georgia,serif;
+      --mono:'Space Mono',monospace;
+      --max:660px;--pad:clamp(1.25rem,5vw,2.5rem);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:16px;scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.75;-webkit-font-smoothing:antialiased;min-height:100vh;}
+    ::selection{background:var(--amber-d);color:var(--text);}
+    a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber-d);transition:color .2s,border-color .2s;}
+    a:hover{color:var(--amber-g);border-color:var(--amber);}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(17,16,9,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:1rem var(--pad);}
+    .nav-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+    .nav-home{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--faint);border:none;display:flex;align-items:center;gap:.5rem;transition:color .2s;}
+    .nav-home:hover{color:var(--muted);border:none;}
+    .nav-home::before{content:'←';font-size:.7rem;}
+    .nav-name{font-family:var(--serif);font-weight:300;font-size:.9rem;color:var(--text);border:none;letter-spacing:.01em;}
+    .nav-name:hover{color:var(--amber);border:none;}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);border:none;transition:color .2s;}
+    .nav-links a:hover{color:var(--amber);}
+    .nav-links a.current{color:var(--amber);}
+
+    .page-header{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+    .page-eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.75rem;}
+    h1{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(2rem,5vw,2.75rem);line-height:1.15;letter-spacing:-.01em;color:var(--text);}
+
+    .label{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+    .label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    .section{padding:2.5rem 0;}
+    .section+.section{border-top:1px solid var(--border);}
+
+    /* Blog items */
+    .b-list{list-style:none;}
+    .b-item{padding:1.75rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;}
+    .b-item:first-child{border-top:1px solid var(--border);}
+    .b-cat{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.45rem;}
+    .b-title{font-family:var(--serif);font-weight:400;font-size:1.05rem;color:var(--text);line-height:1.4;margin-bottom:.45rem;}
+    .b-title a{color:var(--text);border-color:transparent;}
+    .b-title a:hover{color:var(--amber-g);border-color:var(--amber-d);}
+    .b-excerpt{font-size:.85rem;color:var(--muted);line-height:1.65;max-width:460px;}
+    .b-meta{text-align:right;}
+    .b-date{font-family:var(--mono);font-size:.62rem;color:var(--faint);display:block;white-space:nowrap;}
+    .b-read{font-family:var(--mono);font-size:.58rem;color:var(--faint);display:block;margin-top:.2rem;}
+
+    /* Empty state */
+    .empty{padding:4rem 0;text-align:center;}
+    .empty p{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--faint);line-height:1.7;}
+    .empty .e-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-d);margin-bottom:1rem;}
+
+    footer{border-top:1px solid var(--border);padding:1.75rem var(--pad);max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
+    footer p{font-family:var(--mono);font-size:.6rem;color:var(--faint);letter-spacing:.04em;}
+
+    @media(max-width:560px){.b-item{grid-template-columns:1fr;}.b-meta{text-align:left;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-home">Home</a>
+      <a href="index.html" class="nav-name">[Your Name]</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="blog.html" class="current">Blog</a></li>
+        <li><a href="shelf.html">Shelf</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <div class="page-header">
+        <p class="page-eyebrow">Blog</p>
+        <h1>Essays, notes,<br>and reading responses</h1>
+      </div>
+
+      <!-- Essays -->
+      <div class="section">
+        <p class="label">Essays</p>
+        <ul class="b-list">
+          <li class="b-item">
+            <div>
+              <p class="b-cat">Essay</p>
+              <p class="b-title"><a href="#">What happens when an AI grader reads Kenyan English as error</a></p>
+              <p class="b-excerpt">The specific patterns that automated essay tools misread in Kenyan student writing — and why calling this a bias problem understates what is actually a governance failure. A first, empirical look.</p>
+            </div>
+            <div class="b-meta">
+              <span class="b-date">2026</span>
+              <span class="b-read">5 min</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Notes -->
+      <div class="section">
+        <p class="label">Notes</p>
+        <ul class="b-list">
+          <li class="b-item">
+            <div>
+              <p class="b-cat">Note</p>
+              <p class="b-title"><a href="#">On Wandia Njoya's "mimics, not makers" and why I keep returning to it</a></p>
+              <p class="b-excerpt">A reading note on the observation that came from a classroom, not a dataset — and what it tells us about what AI in education is being inserted into.</p>
+            </div>
+            <div class="b-meta">
+              <span class="b-date">2026</span>
+              <span class="b-read">3 min</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Reading Responses -->
+      <div class="section">
+        <p class="label">Reading responses</p>
+        <ul class="b-list">
+
+          <li class="b-item">
+            <div>
+              <p class="b-cat">Reading response</p>
+              <p class="b-title"><a href="#">Notes on <em>Algorithmic Colonisation of Africa</em> — Birhane (2020)</a></p>
+              <p class="b-excerpt">What the Ubuntu framework does that "bias" frameworks cannot — and what it demands of researchers working in African AI contexts.</p>
+            </div>
+            <div class="b-meta">
+              <span class="b-date">2026</span>
+              <span class="b-read">4 min</span>
+            </div>
+          </li>
+
+          <li class="b-item">
+            <div>
+              <p class="b-cat">Reading response</p>
+              <p class="b-title"><a href="#">Notes on <em>Stochastic Parrots</em> — Bender, Gebru et al. (2021)</a></p>
+              <p class="b-excerpt">On what language models are actually doing, what they cannot do, and why the distinction matters for a student who believes an AI tutor understands them.</p>
+            </div>
+            <div class="b-meta">
+              <span class="b-date">2026</span>
+              <span class="b-read">4 min</span>
+            </div>
+          </li>
+
+        </ul>
+        <!-- FILL IN: add more reading responses as you work through the literature.
+             Each one takes 20 minutes to write and immediately makes the site feel alive. -->
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>[Your Name] · Nairobi · 2026</p>
+    <p>← <a href="index.html" style="color:var(--faint);border-color:transparent;">home</a></p>
+  </footer>
+</body>
+</html>
