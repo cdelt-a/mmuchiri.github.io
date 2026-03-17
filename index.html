@@ -4,126 +4,108 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>M. Muchiri</title>
-  <!-- REPLACE YOUR_NAME_HERE with your real name in the title above -->
-  <!-- PLAUSIBLE ANALYTICS: replace yourdomain.github.io with your actual domain -->
-  <!-- <script defer data-domain="yourdomain.github.io" src="https://plausible.io/js/script.js"></script> -->
+  <!-- ANALYTICS: sign up at goatcounter.com (free), replace YOURCODE -->
+  <script data-goatcounter="https://cdelta.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111009'/><circle cx='16' cy='16' r='6' fill='none' stroke='%23D4923A' stroke-width='1.5'/><line x1='16' y1='4' x2='16' y2='10' stroke='%23D4923A' stroke-width='1.5'/><line x1='16' y1='22' x2='16' y2='28' stroke='%23D4923A' stroke-width='1.5'/><line x1='4' y1='16' x2='10' y2='16' stroke='%23D4923A' stroke-width='1.5'/><line x1='22' y1='16' x2='28' y2='16' stroke='%23D4923A' stroke-width='1.5'/></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,200;1,9..144,300;1,9..144,400&family=Space+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --bg:#080705;--text:#EDE7DB;
-      --muted:rgba(237,231,219,.5);--faint:rgba(237,231,219,.26);
-      --amber:#D98C30;--amber-hi:#F0A840;--amber-dim:rgba(217,140,48,.3);
-      --serif:'Fraunces',Georgia,serif;--mono:'Space Mono',monospace;
-    }
+    :root{--bg:#070605;--text:#EDE7DB;--muted:rgba(237,231,219,.58);--faint:rgba(237,231,219,.32);--amber:#D98C30;--amber-hi:#F0A840;--amber-dim:rgba(217,140,48,.3);--serif:'Fraunces',Georgia,serif;--mono:'Space Mono',monospace;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html,body{width:100%;height:100%;overflow:hidden;}
-    body{background:var(--bg);color:var(--text);font-family:var(--mono);-webkit-font-smoothing:antialiased;cursor:default;}
+    body{background:var(--bg);color:var(--text);font-family:var(--mono);-webkit-font-smoothing:antialiased;}
     ::selection{background:var(--amber-dim);color:var(--text);}
 
-    /* ── SLIDES ── */
+    /* SLIDES */
     .slides{position:fixed;inset:0;z-index:0;}
-    .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2.2s ease;}
+    .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2.4s ease;}
     .slide.active{opacity:1;}
+    /* Stronger vignette for legibility */
     .slide::after{content:'';position:absolute;inset:0;background:
       linear-gradient(to bottom,
-        rgba(6,5,3,.72) 0%,
-        rgba(6,5,3,0) 25%,
-        rgba(6,5,3,0) 50%,
-        rgba(6,5,3,.45) 70%,
-        rgba(6,5,3,.88) 100%);}
-    .video-slide{background:#000;}
-    .video-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
-    .video-wrap iframe{position:absolute;width:177.78%;height:177.78%;top:-38.89%;left:-38.89%;border:none;}
+        rgba(5,4,3,.75) 0%,
+        rgba(5,4,3,.05) 22%,
+        rgba(5,4,3,.0) 45%,
+        rgba(5,4,3,.38) 68%,
+        rgba(5,4,3,.92) 100%);}
 
-    /* ── NAV ── */
-    nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:1.6rem 2.5rem;display:flex;justify-content:space-between;align-items:center;}
-    .nav-id{font-family:var(--serif);font-weight:300;font-size:.85rem;color:var(--text);text-decoration:none;letter-spacing:.01em;opacity:.82;transition:opacity .2s;}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;}
+    .nav-id{font-family:var(--serif);font-weight:300;font-size:.85rem;color:var(--text);text-decoration:none;letter-spacing:.02em;opacity:.88;}
     .nav-id:hover{opacity:1;}
-    .nav-links{display:flex;gap:1.75rem;list-style:none;}
-    .nav-links a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;}
+    .nav-links a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.3rem;}
+    .nav-links a svg{width:11px;height:11px;flex-shrink:0;}
     .nav-links a:hover{color:var(--text);}
 
-    /* ── QUOTE AREA ── */
+    /* BOTTOM */
     .bottom{position:fixed;bottom:0;left:0;right:0;z-index:20;padding:0 2.5rem 2rem;}
-    .quote-wrap{max-width:660px;margin-bottom:1.4rem;opacity:0;transform:translateY(10px);transition:opacity 1s ease .5s,transform 1s ease .5s;}
+    .quote-wrap{max-width:680px;margin-bottom:1.4rem;opacity:0;transform:translateY(10px);transition:opacity 1s ease .5s,transform 1s ease .5s;}
     .quote-wrap.visible{opacity:1;transform:translateY(0);}
-    .apod-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(217,140,48,.1);border:1px solid var(--amber-dim);padding:.18rem .55rem;margin-bottom:.55rem;display:none;}
-    .apod-tag.show{display:inline-flex;align-items:center;gap:.35rem;}
-    .quote-text{font-family:var(--serif);font-weight:200;font-style:italic;font-size:clamp(1.2rem,2.7vw,1.7rem);line-height:1.45;color:var(--text);letter-spacing:-.01em;margin-bottom:.5rem;}
+    .apod-tag{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(217,140,48,.1);border:1px solid var(--amber-dim);padding:.18rem .55rem;margin-bottom:.55rem;display:none;align-items:center;gap:.35rem;}
+    .apod-tag.show{display:inline-flex;}
+    .quote-text{font-family:var(--serif);font-weight:200;font-style:italic;font-size:clamp(1.2rem,2.6vw,1.72rem);line-height:1.45;color:var(--text);letter-spacing:-.01em;margin-bottom:.5rem;text-shadow:0 1px 8px rgba(0,0,0,.6);}
     .quote-attr{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-
-    /* ── SPECIES BAR ── */
     .bottom-bar{display:flex;justify-content:space-between;align-items:flex-end;}
     .species-wrap{opacity:0;transform:translateY(5px);transition:opacity .7s ease .8s,transform .7s ease .8s;}
     .species-wrap.visible{opacity:1;transform:translateY(0);}
-    .species-name{font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-bottom:.1rem;}
-    .species-loc{font-size:.56rem;letter-spacing:.06em;color:var(--faint);margin-bottom:.3rem;}
-    .learn-btn{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:none;border:1px solid rgba(237,231,219,.15);padding:.2rem .55rem;cursor:pointer;transition:color .2s,border-color .2s;display:none;}
+    .species-name{font-size:.54rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-bottom:.1rem;}
+    .species-loc{font-size:.54rem;color:var(--faint);margin-bottom:.3rem;}
+    .learn-btn{font-family:var(--mono);font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:none;border:1px solid rgba(237,231,219,.14);padding:.2rem .55rem;cursor:pointer;transition:color .2s,border-color .2s;display:none;}
     .learn-btn.show{display:inline-block;}
     .learn-btn:hover{color:var(--amber);border-color:var(--amber-dim);}
-
-    /* ── CONTROLS ── */
     .controls{display:flex;flex-direction:column;align-items:flex-end;gap:.65rem;}
-    .counter{font-size:.52rem;letter-spacing:.1em;color:var(--faint);}
+    .counter{font-size:.5rem;letter-spacing:.1em;color:var(--faint);}
     .prog-track{width:100px;height:1px;background:rgba(237,231,219,.14);}
-    .prog-fill{height:100%;background:var(--amber);transition:width .5s linear;}
+    .prog-fill{height:100%;background:var(--amber);}
     .arrows{display:flex;gap:.55rem;}
-    .arr{background:none;border:1px solid rgba(237,231,219,.16);color:var(--muted);font-family:var(--mono);font-size:.6rem;padding:.26rem .52rem;cursor:pointer;transition:border-color .2s,color .2s;}
+    .arr{background:none;border:1px solid rgba(237,231,219,.16);color:var(--muted);font-family:var(--mono);font-size:.58rem;padding:.26rem .52rem;cursor:pointer;transition:border-color .2s,color .2s;}
     .arr:hover{border-color:rgba(237,231,219,.42);color:var(--text);}
 
-    /* ── INFO DRAWER ── */
-    .info-drawer{
-      position:fixed;bottom:0;left:0;right:0;z-index:40;
-      background:rgba(8,7,5,.94);backdrop-filter:blur(16px);
-      border-top:1px solid rgba(237,231,219,.1);
-      padding:2rem 2.5rem 2.5rem;
-      transform:translateY(100%);transition:transform .4s ease;
-      max-height:70vh;overflow-y:auto;
-    }
-    .info-drawer.open{transform:translateY(0);}
-    .drawer-close{position:absolute;top:1.25rem;right:2rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s;}
+    /* INFO DRAWER */
+    .drawer{position:fixed;bottom:0;left:0;right:0;z-index:40;background:rgba(7,6,5,.95);backdrop-filter:blur(18px);border-top:1px solid rgba(237,231,219,.1);padding:2rem 2.5rem 2.5rem;transform:translateY(100%);transition:transform .4s ease;max-height:72vh;overflow-y:auto;}
+    .drawer.open{transform:translateY(0);}
+    .drawer-close{position:absolute;top:1.25rem;right:2rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s;}
     .drawer-close:hover{color:var(--amber);}
-    .drawer-title{font-family:var(--serif);font-weight:300;font-style:italic;font-size:1.5rem;color:var(--text);margin-bottom:.35rem;line-height:1.2;}
-    .drawer-loc{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;}
+    .drawer-title{font-family:var(--serif);font-weight:300;font-style:italic;font-size:1.5rem;color:var(--text);margin-bottom:.3rem;}
+    .drawer-loc{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;}
     .drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-    .drawer-block h4{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.65rem;}
-    .drawer-block p{font-family:var(--serif);font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.75;}
-    .drawer-facts{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
-    .drawer-facts li{font-family:var(--serif);font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.6;padding-left:1rem;position:relative;}
-    .drawer-facts li::before{content:'✦';position:absolute;left:0;color:var(--amber);font-size:.55rem;top:.3em;}
-    .drawer-class{font-family:var(--mono);font-size:.56rem;color:var(--faint);line-height:1.9;letter-spacing:.04em;}
+    .drawer-block h4{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.65rem;}
+    .drawer-block p{font-family:var(--serif);font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.78;}
+    .drawer-class{font-family:var(--mono);font-size:.54rem;color:var(--faint);line-height:2;letter-spacing:.04em;}
     .drawer-class span{color:var(--muted);}
-    @media(max-width:600px){.drawer-grid{grid-template-columns:1fr;}}
+    .drawer-facts{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
+    .drawer-facts li{font-family:var(--serif);font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.62;padding-left:1rem;position:relative;}
+    .drawer-facts li::before{content:'✦';position:absolute;left:0;color:var(--amber);font-size:.5rem;top:.3em;}
 
-    /* ── MUSIC PLAYER ── */
+    /* MUSIC PLAYER — Spotify only, no YouTube */
     #mplayer{position:fixed;bottom:1.75rem;right:2.5rem;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:.45rem;}
-    .mp-toggle{background:rgba(8,7,5,.88);backdrop-filter:blur(10px);border:1px solid rgba(237,231,219,.14);color:var(--muted);font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.45rem;transition:color .2s,border-color .2s;}
+    .mp-toggle{background:rgba(7,6,5,.9);backdrop-filter:blur(12px);border:1px solid rgba(237,231,219,.14);color:var(--muted);font-family:var(--mono);font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.45rem;transition:color .2s,border-color .2s;}
     .mp-toggle:hover{color:var(--amber-hi);border-color:var(--amber-dim);}
     .mp-dot{width:5px;height:5px;border-radius:50%;background:var(--faint);flex-shrink:0;transition:background .3s;}
-    .mp-dot.on{background:var(--amber);animation:glow 1.5s ease-in-out infinite;}
-    @keyframes glow{0%,100%{opacity:1;}50%{opacity:.3;}}
-    .mp-panel{background:rgba(8,7,5,.94);backdrop-filter:blur(14px);border:1px solid rgba(237,231,219,.1);width:300px;display:none;overflow:hidden;}
+    .mp-dot.on{background:var(--amber);animation:pulse 1.5s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.28;}}
+    .mp-panel{background:rgba(7,6,5,.96);backdrop-filter:blur(16px);border:1px solid rgba(237,231,219,.1);width:310px;display:none;overflow:hidden;}
     .mp-panel.open{display:block;}
     .mp-tabs{display:flex;border-bottom:1px solid rgba(237,231,219,.08);}
-    .mpt{flex:1;font-family:var(--mono);font-size:.48rem;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);padding:.5rem .2rem;cursor:pointer;text-align:center;border-bottom:1.5px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;white-space:nowrap;}
+    .mpt{flex:1;font-family:var(--mono);font-size:.47rem;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);padding:.5rem .2rem;cursor:pointer;text-align:center;border-bottom:1.5px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;white-space:nowrap;}
     .mpt:hover{color:var(--muted);}
     .mpt.active{color:var(--amber);border-bottom-color:var(--amber);}
     .mp-pane{display:none;}
     .mp-pane.active{display:block;}
-    .mp-note{padding:.55rem .7rem;font-size:.5rem;color:var(--faint);font-family:var(--mono);line-height:1.5;border-top:1px solid rgba(237,231,219,.06);}
-    .mp-note a{color:var(--faint);text-decoration:none;border-bottom:1px solid rgba(237,231,219,.15);}
+    .mp-pane iframe{display:block;}
+    /* Search bar */
+    .mp-search{padding:.6rem .7rem;border-bottom:1px solid rgba(237,231,219,.07);display:flex;gap:.4rem;}
+    .mp-search input{flex:1;background:rgba(237,231,219,.06);border:1px solid rgba(237,231,219,.12);color:var(--text);font-family:var(--mono);font-size:.58rem;padding:.35rem .55rem;outline:none;min-width:0;transition:border-color .2s;}
+    .mp-search input:focus{border-color:var(--amber-dim);}
+    .mp-search input::placeholder{color:var(--faint);}
+    .mp-search button{background:none;border:1px solid rgba(237,231,219,.14);color:var(--muted);font-family:var(--mono);font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .6rem;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s;flex-shrink:0;}
+    .mp-search button:hover{color:var(--amber);border-color:var(--amber-dim);}
+    .mp-note{padding:.5rem .7rem;font-size:.5rem;color:var(--faint);font-family:var(--mono);line-height:1.55;border-top:1px solid rgba(237,231,219,.06);}
 
-    @media(max-width:580px){
-      nav{padding:1.2rem 1.2rem;}
-      .bottom{padding:0 1.2rem 1.5rem;}
-      .nav-links{gap:1.1rem;}
-      #mplayer{right:1.2rem;}
-      .mp-panel{width:260px;}
-      .info-drawer{padding:1.5rem 1.2rem 2rem;}
-    }
+    @media(max-width:580px){nav{padding:1.2rem 1.2rem;}.bottom{padding:0 1.2rem 1.5rem;}.nav-links{gap:1rem;}#mplayer{right:1.2rem;}.mp-panel{width:268px;}.drawer{padding:1.5rem 1.2rem 2rem;}.drawer-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -131,14 +113,13 @@
 <div class="slides" id="slides"></div>
 
 <nav>
-  <!-- REPLACE cdelt-a with your real name or preferred identity -->
-  <a href="index.html" class="nav-id">Martin Muchiri</a>
+  <a href="index.html" class="nav-id">M. Muchiri</a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="shelf.html">Shelf</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a></li>
+    <li><a href="research.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>Research</a></li>
+    <li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Blog</a></li>
+    <li><a href="shelf.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Shelf</a></li>
+    <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Contact</a></li>
   </ul>
 </nav>
 
@@ -155,7 +136,7 @@
       <button class="learn-btn" id="learnBtn" onclick="openDrawer()">learn more ↑</button>
     </div>
     <div class="controls">
-      <span class="counter" id="counter">01 / 30</span>
+      <span class="counter" id="counter">01 / —</span>
       <div class="prog-track"><div class="prog-fill" id="fill" style="width:0%"></div></div>
       <div class="arrows">
         <button class="arr" id="prev">← prev</button>
@@ -166,64 +147,68 @@
 </div>
 
 <!-- INFO DRAWER -->
-<div class="info-drawer" id="infoDrawer">
+<div class="drawer" id="drawer">
   <button class="drawer-close" onclick="closeDrawer()">close ✕</button>
   <p class="drawer-title" id="dTitle"></p>
   <p class="drawer-loc"   id="dLoc"></p>
   <div class="drawer-grid" id="dGrid"></div>
 </div>
 
-<!-- MUSIC PLAYER -->
+<!-- MUSIC PLAYER — Spotify only -->
 <div id="mplayer">
   <div class="mp-panel" id="mpPanel">
     <div class="mp-tabs">
-      <div class="mpt active" onclick="swMp(this,'piano')">Classical Renditions</div>
-      <div class="mpt" onclick="swMp(this,'africa')">Afro-Indie</div>
+      <div class="mpt active" onclick="swMp(this,'piano')">Piano</div>
+      <div class="mpt" onclick="swMp(this,'africa')">Africa</div>
       <div class="mpt" onclick="swMp(this,'focus')">Focus</div>
       <div class="mpt" onclick="swMp(this,'ambient')">Ambient</div>
     </div>
-    <!-- Spotify embeds — theme=0 forces dark mode -->
-    <!-- Classical Renditions by Youtube -->
+    <!-- Search bar — opens Spotify search in new tab -->
+    <div class="mp-search">
+      <input type="text" id="spSearch" placeholder="Search Spotify…" onkeydown="if(event.key==='Enter')doSearch()"/>
+      <button onclick="doSearch()">↗ search</button>
+    </div>
+    <!-- Peaceful Piano -->
     <div class="mp-pane active" id="mp-piano">
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/XVnsgxuEZaA?si=olx0DYkiwH97wwVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_UucPr2M-qU?si=9LDTolQgAxL0TjpL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/aK8TlGHaB8o?si=K3xrtDPFbETH6cj5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/5LR5n6QYRPU?si=bXAQFOd__-Nnrido" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Vi_ryQWXshc?si=b1m6jzI0earZG-cM&amp;start=1102" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-      <iframe id="sp-piano" style="border-radius:0;display:block;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY?utm_source=generator&theme=0" width="300" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY?utm_source=generator&theme=0" width="310" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
     </div>
-    <!-- Afro-Indie by Spotify -->
-    <div class="mp-pane" id="afro-indie">
-    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXaYLfJcKWFfF?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    
-    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7BEd5DnMYESi3FVI4fAqxy?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <!-- African Heat — confirmed working Spotify playlist -->
+    <div class="mp-pane" id="mp-africa">
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8bXByKnhSmh?utm_source=generator&theme=0" width="310" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
     </div>
-    <!-- Deep Focus by Spotify -->
+    <!-- Deep Focus -->
     <div class="mp-pane" id="mp-focus">
-      <iframe id="sp-focus" style="border-radius:0;display:block;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0" width="300" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0" width="310" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
     </div>
-    <!-- Night Rider (Ambient) by Spotify -->
+    <!-- Ambient Chill -->
     <div class="mp-pane" id="mp-ambient">
-      <iframe id="sp-ambient" style="border-radius:0;display:block;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX889U0CL85jj?utm_source=generator&theme=0" width="300" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX889U0CL85jj?utm_source=generator&theme=0" width="310" height="152" frameBorder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
     </div>
-    <p class="mp-note">Switching tabs will not auto-pause — pause manually first. Spotify users: full playback. Others: 30-sec previews. <a href="https://open.spotify.com" target="_blank" rel="noopener">Open Spotify ↗</a> to search freely.</p>
+    <p class="mp-note">Pause before switching tabs. Spotify: full playback · Others: 30-sec previews.</p>
   </div>
-  <button class="mp-toggle" onclick="toggleMp()">
-    <span class="mp-dot" id="mpDot"></span>listen
-  </button>
+  <button class="mp-toggle" onclick="toggleMp()"><span class="mp-dot" id="mpDot"></span>listen</button>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════
-   QUOTES — curated from approved voices only
-═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   UNSPLASH API
+   Paste your Access Key (NOT Secret Key) below.
+   Get it free: unsplash.com/developers → New Application
+   The Access Key is safe to use client-side.
+═══════════════════════════════════════════════════════ */
+const UNSPLASH_KEY = 'sgPN2TYKB9CNWvySWEmb7Rx9fnnxSEyUiW_vMPi6baM';
+
+/* ═══════════════════════════════════════════════════════
+   NASA APOD — get your free key: api.nasa.gov
+   Replace DEMO_KEY — DEMO_KEY is rate-limited on public sites
+═══════════════════════════════════════════════════════ */
+const NASA_KEY = ' OlNNHhk3s5zIsgAxpc5TH8xI9blwswMXlZPGhhBL ';
+
+/* ═══════════════════════════════════════════════════════
+   QUOTES — curated voices only
+═══════════════════════════════════════════════════════ */
 const QUOTES = [
+
   // TONI MORRISON
   { t: "If you have some power, then your job is to empower somebody else.", a: "Toni Morrison" },
   { t: "The function of freedom is to free someone else.", a: "Toni Morrison" },
@@ -463,84 +448,132 @@ const QUOTES = [
   { t: "A system built on individualist assumptions will fail communities built on relational ones.", a: "Abeba Birhane" },
   { t: "Algorithmic systems do not import objectivity. They import the assumptions of those who built them.", a: "Abeba Birhane" },
   { t: "Ubuntu says: a person is a person through other persons. AI built on Descartes cannot serve Ubuntu communities.", a: "Abeba Birhane" },
+  
+  {t:"Each generation must discover its mission, fulfil it or betray it.",a:"Frantz Fanon"},
+  {t:"If you have some power, then your job is to empower somebody else.",a:"Toni Morrison"},
+  {t:"The function of freedom is to free someone else.",a:"Toni Morrison"},
+  {t:"The very serious function of racism is distraction. It keeps you from doing your work.",a:"Toni Morrison"},
+  {t:"We die. That may be the meaning of life. But we do language. That may be the measure of our lives.",a:"Toni Morrison"},
+  {t:"I am not African because I was born in Africa, but because Africa was born in me.",a:"Kwame Nkrumah"},
+  {t:"We face neither East nor West; we face forward.",a:"Kwame Nkrumah"},
+  {t:"Until the lion learns to write, every story will glorify the hunter.",a:"Chinua Achebe"},
+  {t:"We cannot trample upon the humanity of others without devaluing our own.",a:"Chinua Achebe"},
+  {t:"A tiger does not proclaim its tigritude, it pounces.",a:"Wole Soyinka"},
+  {t:"The man dies in all who keep silent in the face of tyranny.",a:"Wole Soyinka"},
+  {t:"I am because we are, and since we are, therefore I am.",a:"John Mbiti"},
+  {t:"The purpose of development is the human being.",a:"Julius Nyerere"},
+  {t:"I refuse to be hanged as a criminal. I am a freedom fighter.",a:"Dedan Kimathi"},
+  {t:"Elite capture is the process by which the advantaged few steer resources and narratives toward their own interests.",a:"Olúfẹ́mi O. Táíwò"},
+  {t:"You cannot decolonise the mind with colonial tools.",a:"Wandia Njoya"},
+  {t:"African children deserve knowledge, not just skills for someone else's economy.",a:"Wandia Njoya"},
+  {t:"Conservation cannot be separated from the communities that have always lived alongside wildlife.",a:"Mordecai Ogada"},
+  {t:"Indigenous data sovereignty is not a request. It is a right.",a:"Keolu Fox"},
+  {t:"The most common way people give up their power is by thinking they don't have any.",a:"Alice Walker"},
+  {t:"No person is your friend who demands your silence, or denies your right to grow.",a:"Alice Walker"},
+  {t:"Your silence will not protect you.",a:"Audre Lorde"},
+  {t:"It is not our differences that divide us. It is our inability to recognise, accept, and celebrate those differences.",a:"Audre Lorde"},
+  {t:"The opposite of poverty is not wealth. The opposite of poverty is justice.",a:"Bryan Stevenson"},
+  {t:"Education is the most powerful weapon which you can use to change the world.",a:"Nelson Mandela"},
+  {t:"My humanity is bound up in yours, for we can only be human together.",a:"Desmond Tutu"},
+  {t:"Not everything that is faced can be changed, but nothing can be changed until it is faced.",a:"James Baldwin"},
+  {t:"There is no greater agony than bearing an untold story inside you.",a:"Maya Angelou"},
+  {t:"The problem with gender is that it prescribes how we should be rather than recognising how we are.",a:"Chimamanda Ngozi Adichie"},
+  {t:"Culture does not make people. People make culture.",a:"Chimamanda Ngozi Adichie"},
+  {t:"Algorithmic systems do not import objectivity. They import the assumptions of those who built them.",a:"Abeba Birhane"},
+  {t:"A system built on individualist assumptions will fail communities built on relational ones.",a:"Abeba Birhane"},
+  {t:"I have one great fear in my heart, that one day when they are turned to loving, they will find we are turned to hating.",a:"Alan Paton"},
+  {t:"Memory is not static. It swells and recedes like the tide.",a:"Abdulrazak Gurnah"},
+  {t:"There is always another side, always.",a:"Jean Rhys"},
+  {t:"A child who is not embraced by the village will burn it down to feel its warmth.",a:"African proverb"},
+  {t:"Knowledge is like a garden: if it is not cultivated, it cannot be harvested.",a:"African proverb"},
+  {t:"When elephants fight, it is the grass that suffers.",a:"East African proverb"},
+  {t:"He who learns, teaches.",a:"Ethiopian proverb"},
+  {t:"The one who tells the stories rules the world.",a:"Hopi proverb"},
+  {t:"We do not inherit the earth from our ancestors; we borrow it from our children.",a:"Indigenous proverb"},
+  {t:"I am no longer accepting the things I cannot change. I am changing the things I cannot accept.",a:"Angela Davis"},
+  {t:"Radical simply means grasping things at the root.",a:"Angela Davis"},
+  {t:"There can be no love without justice.",a:"bell hooks"},
+  {t:"If you don't design your own life plan, chances are you'll fall into someone else's plan.",a:"Strive Masiyiwa"},
+  {t:"Africa is not rising. Africa is awake.",a:"Ngugi wa Thiong'o"},
+  {t:"Language carries culture, and culture carries the entire body of values by which we come to perceive ourselves.",a:"Ngugi wa Thiong'o"},
 ];
 
-/* ═══════════════════════════════════════════════════
-   SLIDES DATA — with rich info for fauna/flora
-═══════════════════════════════════════════════════ */
-const SLIDES = [
-  /* ── KENYA / EAST AFRICA — Unsplash (permanent URLs, no key needed for display) ── */
+/* ═══════════════════════════════════════════════════════
+   STATIC WILDLIFE SLIDES — confirmed Unsplash URLs
+   with full Did You Know info
+═══════════════════════════════════════════════════════ */
+const STATIC_SLIDES = [
   {
     img:'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1920&q=80',
-    name:'Vachellia tortilis · Umbrella Acacia', loc:'Maasai Mara, Kenya',
+    name:'Vachellia tortilis · Umbrella Acacia',loc:'Maasai Mara, Kenya',
     info:{
       classification:'Kingdom: Plantae · Family: Fabaceae · Genus: Vachellia · Species: V. tortilis',
-      description:'The umbrella acacia defines the East African savanna silhouette. Its deep taproot can reach 35 metres underground during 18-month dry spells.',
-      habitat:'Semi-arid savanna and alkaline soils of East Africa, extending to the Middle East.',
-      facts:['Giraffes are its primary browser — their 45cm tongue defeats its thorns.','Maasai use bark to treat malaria and roots to purify water.','Seed pods feed elephants, impalas, and 40+ insect species during dry season.','Can live over 200 years.','Horizontal crown shape maximises photosynthesis while minimising heat.']
+      description:'The umbrella acacia defines the East African savanna silhouette. Its deep taproot reaches 35 metres underground during 18-month dry spells — one of nature\'s most efficient drought-survival adaptations.',
+      habitat:'Semi-arid savanna and alkaline soils of East Africa. Found from Senegal to Somalia and south to South Africa.',
+      facts:['Giraffes are its primary browser — their 45cm tongue defeats even its longest thorns.','Maasai communities use the bark to treat malaria, and the roots to purify drinking water.','Seed pods sustain elephants, impalas, and over 40 insect species during dry season when nothing else grows.','Can live over 200 years. Some specimens in northern Kenya are estimated at 300.','Its flat crown is not coincidence — it maximises photosynthesis while minimising heat absorption from direct equatorial sun.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1920&q=80',
-    name:'Phoeniconaias minor · Lesser Flamingo', loc:'Lake Nakuru, Kenya',
+    name:'Phoeniconaias minor · Lesser Flamingo',loc:'Lake Nakuru, Kenya',
     info:{
       classification:'Kingdom: Animalia · Class: Aves · Family: Phoenicopteridae · Species: P. minor',
-      description:'At Lakes Nakuru and Bogoria, populations of one to two million birds have turned shorelines into living pink landscapes.',
-      habitat:'Highly alkaline soda lakes of the East African Rift Valley — pH above 10.',
-      facts:['Feeds exclusively on cyanobacteria filtered through an upside-down bill.','Pink colour comes entirely from carotenoid pigments in their algae diet.','Chicks are born grey; parents feed them red crop milk for two months.','Listed as Near Threatened due to drainage of soda lakes.','The Rift Valley soda lakes are among Earth\'s most productive ecosystems.']
+      description:'The most numerous flamingo species — and one of nature\'s most spectacular aggregations. At Lake Nakuru and Bogoria, up to two million birds have turned entire shorelines into living, breathing pink landscapes.',
+      habitat:'Highly alkaline soda lakes of the East African Rift Valley. pH above 10 — water that would dissolve human skin.',
+      facts:['Feeds exclusively on cyanobacteria filtered through a specialised upside-down bill. No other vertebrate exploits this food source in these quantities.','Pink-to-crimson colour comes entirely from carotenoid pigments in the algae they eat. Deprive them of it and they turn white.','Chicks are born grey. Parents feed them crimson crop milk for the first two months.','Listed as Near Threatened — drainage of soda lakes for agriculture is reducing breeding habitat.','The Rift Valley soda lakes are among Earth\'s most productive ecosystems precisely because of their extreme chemistry.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1581852017103-68ac65514cf7?auto=format&fit=crop&w=1920&q=80',
-    name:'Loxodonta africana · African Bush Elephant', loc:'Amboseli, Kenya',
+    name:'Loxodonta africana · African Bush Elephant',loc:'Amboseli, Kenya',
     info:{
-      classification:'Kingdom: Animalia · Class: Mammalia · Order: Proboscidea · Species: L. africana',
-      description:'The largest land animal on Earth. Elephant society is matriarchal — elder females hold 70 years of knowledge of drought refuges and migration routes.',
-      habitat:'Sub-Saharan Africa: savanna, forest edge, semi-desert, riverine woodland.',
-      facts:['Elephants return to the bones of dead family members and touch them carefully for hours — they grieve.','Their temporal lobe is larger relative to body size than in any other mammal.','A single elephant creates water holes used by hundreds of other species.','They communicate in infrasound that travels 10km through the ground.','Ivory poaching killed over 100,000 African elephants between 2010 and 2012.']
+      classification:'Kingdom: Animalia · Class: Mammalia · Order: Proboscidea · Family: Elephantidae · Species: L. africana',
+      description:'The largest land animal on Earth. Elephant society is matriarchal: elder females hold 70 years of memory — drought refuges, migration routes, the identities of hundreds of individuals.',
+      habitat:'Sub-Saharan Africa. Amboseli\'s population is one of the most studied on Earth, with research data spanning over 50 years.',
+      facts:['Elephants grieve. They return to the bones of dead family members, touching them carefully with their trunks for hours.','Their temporal lobe — the memory centre — is larger relative to body size than in any other mammal. They recognise hundreds of individuals by voice alone.','A single elephant creates and maintains water holes used by hundreds of other species. They are keystone ecosystem engineers.','They communicate in infrasound — below human hearing — that travels 10km through the ground.','Between 2010 and 2012 alone, ivory poaching killed over 100,000 African elephants.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1920&q=80',
-    name:'Giraffa reticulata · Reticulated Giraffe', loc:'Laikipia, Kenya',
+    name:'Giraffa reticulata · Reticulated Giraffe',loc:'Laikipia, Kenya',
     info:{
       classification:'Kingdom: Animalia · Class: Mammalia · Family: Giraffidae · Species: G. reticulata',
-      description:'The most endangered giraffe species. Fewer than 16,000 remain — a 40% decline in 30 years that has been called a silent extinction.',
-      habitat:'Northern Kenya, southern Somalia, and southern Ethiopia.',
-      facts:['Their 45–50cm tongue is blue-black — pigment protects against UV radiation.','Heart weighs up to 11kg and pumps blood 2 metres upward against gravity.','They sleep only 30 minutes per day total, in 5-minute intervals.','Pattern is unique to each individual, like a fingerprint.','Males engage in necking contests that can render opponents unconscious.']
+      description:'The most endangered giraffe species. Fewer than 16,000 remain — a 40% population decline in 30 years that conservation biologists call a silent extinction.',
+      habitat:'Northern Kenya, southern Somalia, and southern Ethiopia. Arid and semi-arid bushland of the Horn of Africa.',
+      facts:['Their 45–50cm tongue is blue-black. The pigment is believed to protect against UV radiation from hours of browsing in direct equatorial sun.','A giraffe\'s heart weighs up to 11kg and pumps blood 2 metres upward against gravity.','They sleep only 30 minutes per day total, in 5-minute intervals. In the wild, lying down for longer is rarely safe.','The pattern is unique to each individual — like a fingerprint.','Males engage in "necking" contests — swinging their long necks to head-butt rivals — that can render an opponent unconscious.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1920&q=80',
-    name:'Adansonia digitata · Baobab', loc:'Kilifi Coast, Kenya',
+    name:'Adansonia digitata · Baobab',loc:'Kilifi Coast, Kenya',
     info:{
-      classification:'Kingdom: Plantae · Order: Malvales · Family: Malvaceae · Species: A. digitata',
-      description:'Stores up to 120,000 litres of water in its trunk. Some specimens are over 3,000 years old — among the oldest living organisms on Earth.',
-      habitat:'Sub-Saharan African savanna and coastal regions including Kenya\'s Kilifi and Lamu coasts.',
-      facts:['Kaya Kinondo sacred forest near Kilifi contains ancient baobabs central to Digo and Giriama ritual life.','Its fruit contains six times the vitamin C of an orange.','Hollow baobabs have served as dwellings, water tanks, and even a pub.','It is its own ecosystem: hundreds of species depend on it.','Nine of Africa\'s thirteen largest baobabs have collapsed since 2005 — likely due to climate change.']
+      classification:'Kingdom: Plantae · Order: Malvales · Family: Malvaceae · Genus: Adansonia · Species: A. digitata',
+      description:'Stores up to 120,000 litres of water in its spongy trunk. Some specimens are over 3,000 years old, making them among the oldest living organisms on Earth.',
+      habitat:'Sub-Saharan African savanna and coastal regions. Kenya\'s Kilifi and Lamu coasts host some of the largest specimens on the continent.',
+      facts:['The Kaya Kinondo sacred forest near Kilifi contains baobabs central to Digo and Giriama ritual life — some considered inhabited by ancestral spirits.','Its fruit contains six times the vitamin C of an orange and twice the calcium of milk. Communities across East Africa have eaten it for millennia.','Hollow baobabs have served as human dwellings, water tanks, and — in South Africa — a pub inside a single trunk with an 8-metre circumference.','It is its own ecosystem: bushbabies, bats, hornbills, genets, and hundreds of insect species depend on it.','Nine of Africa\'s thirteen largest baobabs have partially or completely collapsed since 2005 — likely due to climate-change drought stress.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1535941339077-2dd1c7963098?auto=format&fit=crop&w=1920&q=80',
-    name:'Connochaetes taurinus · Blue Wildebeest', loc:'Mara River, Kenya',
+    name:'Connochaetes taurinus · Blue Wildebeest',loc:'Mara River, Kenya',
     info:{
       classification:'Kingdom: Animalia · Class: Mammalia · Family: Bovidae · Species: C. taurinus',
-      description:'1.5 million wildebeest travel a 3,000km circuit annually — the largest overland migration of mammals on Earth.',
-      habitat:'The Serengeti-Mara ecosystem spanning Tanzania and Kenya.',
-      facts:['400,000–500,000 calves are born in a 3-week synchronised event to overwhelm predators.','Newborn calves stand within 7 minutes and run within hours — hardwired, not learned.','They form a mutualistic grazing chain with zebras and gazelles.','Migration follows rainfall — a decentralised emergent intelligence no individual understands.','Mara River crossings kill hundreds annually, but feed the river ecosystem for months.']
+      description:'The engine of the Great Migration — the largest overland movement of mammals on the planet. 1.5 million wildebeest travel a 3,000km circuit annually through Tanzania and Kenya.',
+      habitat:'The Serengeti-Mara ecosystem spanning Tanzania and Kenya — one of the most intact savanna systems on Earth.',
+      facts:['400,000–500,000 calves arrive in a 3-week synchronised window to overwhelm the capacity of predators to kill them all. It is called predator saturation.','Newborn calves stand within 7 minutes of birth. Within hours, they run. This is not learned — it is hardwired.','Wildebeest form a mutualistic grazing chain with zebras and gazelles. Each eats a different layer of grass. All three benefit.','The migration follows rainfall gradients — a decentralised emergent intelligence that no individual herd member consciously understands.','The Mara River crossings kill hundreds annually to crocodiles and currents — but the carcasses feed the river ecosystem for months.']
     }
   },
   {
     img:'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1920&q=80',
-    name:'Cenchrus ciliaris · Buffel Grass', loc:'Tsavo East, Kenya',
+    name:'Cenchrus ciliaris · Buffel Grass',loc:'Tsavo East, Kenya',
     info:{
       classification:'Kingdom: Plantae · Family: Poaceae · Species: C. ciliaris',
-      description:'In its native East African savanna, a foundation species. Introduced elsewhere, a weapon. One of the most instructive examples in ecology.',
-      habitat:'Native to semi-arid savannas and rocky hillsides of East Africa.',
-      facts:['Seeds bear hook-like bristles that attach to fur and clothing for dispersal across vast distances.','In Tsavo, primary dry-season grazing for wildebeest, zebra, and buffalo.','Introduced to Australia, it became catastrophically invasive — overrunning 400,000 km² of desert.','Burns hotter than native plants, creating fire cycles that destroy Australian desert ecosystems.','Its story is a lesson: the same species that sustains one ecosystem can annihilate another.']
+      description:'In its native East African savanna, a foundation species that sustains vast herbivore populations. Introduced elsewhere, it has become one of the most destructive invasive plants on Earth.',
+      habitat:'Native to semi-arid savannas of East Africa. Invasive in Australia, the American Southwest, and the Canary Islands.',
+      facts:['Seeds bear hook-like bristles that attach to fur and clothing — a dispersal system that crosses continents.','In Tsavo, it is the primary dry-season grazing layer for wildebeest, zebra, and buffalo when all else fails.','Introduced to Australia, it has overrun 400,000 km² of desert, burns hotter than native plants, and destroys fire-sensitive ecosystems.','Its story is a lesson in ecological context: the same species that sustains one ecosystem annihilates another.','Tsavo\'s distinctive red soil — oxidised volcanic ash — is partly stabilised by this grass\'s root networks.']
     }
   },
-
+  
   /* ── LANDSCAPE IMAGES — Picsum (100% free, no API key, reliable) ── */
   {img:'https://picsum.photos/id/10/1920/1080',name:'',loc:'',info:null},
   {img:'https://picsum.photos/id/11/1920/1080',name:'',loc:'',info:null},
@@ -655,94 +688,65 @@ const SLIDES = [
   {img:'https://picsum.photos/id/128/1920/1080',name:'',loc:'',info:null},
   {img:'https://picsum.photos/id/129/1920/1080',name:'',loc:'',info:null},
   {img:'https://picsum.photos/id/130/1920/1080',name:'',loc:'',info:null},
-
-  /* VIDEO SLIDES — replace videoId with real YouTube IDs */
-  /* Search: "4K Kenya wildlife ambient" or "Serengeti 4K" or "East Africa nature 4K" */
-  {isVideo:true, videoId:'Gu2rEp_SZSg', name:'', loc:'', info:null},
-  {isVideo:true, videoId:'mF8wmpGaUP8', name:'', loc:'', info:null},
+  
 ];
 
-/* ═══════════════════════════════════════════════════
-   DISPLAY DURATION — 10 to 20 minutes per slide
-   (900000ms = 15 minutes average)
-═══════════════════════════════════════════════════ */
-const MIN_DUR = 10 * 60 * 1000;  // 10 minutes
-const MAX_DUR = 20 * 60 * 1000;  // 20 minutes
-const TICK    = 1000; // update progress bar every second
-
-function randDur() {
-  return MIN_DUR + Math.random() * (MAX_DUR - MIN_DUR);
-}
-
-/* ═══════════════════════════════════════════════════
-   BUILD SLIDES
-═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   SLIDESHOW ENGINE
+═══════════════════════════════════════════════════════ */
+let slides = [...STATIC_SLIDES];
 const slidesEl = document.getElementById('slides');
-let slides = [...SLIDES];
 
-function buildSlideEls() {
+function buildSlides() {
   slidesEl.innerHTML = '';
   slides.forEach((s, i) => {
     const el = document.createElement('div');
-    el.className = 'slide' + (s.isVideo ? ' video-slide' : '') + (i === 0 ? ' active' : '');
-    if (s.isVideo) {
-      el.innerHTML = `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${s.videoId}?autoplay=1&mute=1&loop=1&playlist=${s.videoId}&controls=0&rel=0&modestbranding=1" allow="autoplay;encrypted-media" allowfullscreen></iframe></div>`;
-    } else {
-      el.style.backgroundImage = `url('${s.img}')`;
-    }
+    el.className = 'slide' + (i === 0 ? ' active' : '');
+    el.style.backgroundImage = `url('${s.img}')`;
     slidesEl.appendChild(el);
   });
 }
+buildSlides();
 
-buildSlideEls();
+const MIN_DUR = 10 * 60 * 1000; // 10 min
+const MAX_DUR = 20 * 60 * 1000; // 20 min
+const TICK = 2000;
+let cur = 0, timer = null, elapsed = 0, curDur = rndDur(), paused = false;
 
-/* ═══════════════════════════════════════════════════
-   SLIDESHOW ENGINE
-═══════════════════════════════════════════════════ */
-let cur = 0, timer = null, elapsed = 0, curDur = randDur(), paused = false;
-
-function getEls() { return document.querySelectorAll('.slide'); }
+function rndDur() { return MIN_DUR + Math.random() * (MAX_DUR - MIN_DUR); }
 
 function showSlide(n) {
-  const els = getEls();
+  const els = document.querySelectorAll('.slide');
+  if (!els.length) return;
   els[cur].classList.remove('active');
   document.getElementById('qWrap').classList.remove('visible');
   document.getElementById('spWrap').classList.remove('visible');
   closeDrawer();
-
   cur = (n + slides.length) % slides.length;
-  curDur = randDur();
-  elapsed = 0;
+  curDur = rndDur(); elapsed = 0;
   document.getElementById('fill').style.width = '0%';
-
   els[cur].classList.add('active');
   const s = slides[cur];
-
-  // Pick a quote based on current slide index + time
-  const q = QUOTES[(cur + new Date().getHours()) % QUOTES.length];
+  const q = QUOTES[(cur + Math.floor(Date.now() / 3600000)) % QUOTES.length];
   document.getElementById('qText').textContent = s.isAPOD ? s.title : q.t;
   document.getElementById('qAttr').textContent = s.isAPOD ? '— NASA APOD · ' + s.date : '— ' + q.a;
   document.getElementById('apodTag').className = 'apod-tag' + (s.isAPOD ? ' show' : '');
-
   document.getElementById('spName').textContent = s.name || '';
   document.getElementById('spLoc').textContent  = s.loc  || '';
   const lb = document.getElementById('learnBtn');
   lb.className = 'learn-btn' + (s.info ? ' show' : '');
-
   document.getElementById('counter').textContent =
     String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-
   setTimeout(() => {
     document.getElementById('qWrap').classList.add('visible');
     document.getElementById('spWrap').classList.add('visible');
-  }, 400);
+  }, 450);
 }
 
 function tick() {
   if (paused) return;
   elapsed += TICK;
-  document.getElementById('fill').style.width =
-    Math.min((elapsed / curDur) * 100, 100) + '%';
+  document.getElementById('fill').style.width = Math.min((elapsed / curDur) * 100, 100) + '%';
   if (elapsed >= curDur) showSlide(cur + 1);
 }
 
@@ -756,24 +760,80 @@ document.addEventListener('keydown', e => {
 });
 document.querySelector('.bottom').addEventListener('mouseenter', () => { paused = true; });
 document.querySelector('.bottom').addEventListener('mouseleave', () => { paused = false; });
-document.getElementById('infoDrawer').addEventListener('mouseenter', () => { paused = true; });
-document.getElementById('infoDrawer').addEventListener('mouseleave', () => { paused = false; });
 
 showSlide(0);
 startTimer();
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
+   LOAD WILDLIFE IMAGES FROM UNSPLASH API
+   Adds to slides after initial render — non-blocking
+═══════════════════════════════════════════════════════ */
+async function loadWildlife() {
+  if (!UNSPLASH_KEY || UNSPLASH_KEY === 'sgPN2TYKB9CNWvySWEmb7Rx9fnnxSEyUiW_vMPi6baM') return;
+  try {
+    const queries = ['african wildlife', 'africa', 'kenya', 'humanity', 'marine life ocean', 'tropical birds', 'african savanna', 'plantation landscapes', 'rainforest wildlife', 'vintage plane', 'coral reef fish'];
+    const results = await Promise.allSettled(queries.map(q =>
+      fetch(`https://api.unsplash.com/photos/random?query=${encodeURIComponent(q)}&count=8&orientation=landscape&client_id=${UNSPLASH_KEY}`)
+        .then(r => r.ok ? r.json() : [])
+    ));
+    const newSlides = [];
+    results.forEach(r => {
+      if (r.status === 'fulfilled' && Array.isArray(r.value)) {
+        r.value.forEach(p => {
+          newSlides.push({
+            img: p.urls.regular,
+            name: p.alt_description ? p.alt_description.replace(/^\w/, c => c.toUpperCase()) : '',
+            loc: [p.location?.city, p.location?.country].filter(Boolean).join(', '),
+            info: null,
+            credit: p.user.name
+          });
+        });
+      }
+    });
+    if (newSlides.length) {
+      // Shuffle wildlife images in
+      newSlides.sort(() => Math.random() - 0.5);
+      slides = [...STATIC_SLIDES, ...newSlides];
+      buildSlides();
+      // Re-show current slide to keep in sync
+      document.getElementById('counter').textContent =
+        String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    }
+  } catch(e) { /* fail silently */ }
+}
+
+/* ═══════════════════════════════════════════════════════
+   NASA APOD — async, non-blocking
+═══════════════════════════════════════════════════════ */
+async function loadAPOD() {
+  try {
+    const r = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`);
+    if (!r.ok) return;
+    const d = await r.json();
+    if (d.media_type === 'image') {
+      slides.unshift({ img: d.hdurl || d.url, isAPOD: true, title: d.title, date: d.date, name: d.copyright ? '© ' + d.copyright : 'NASA', loc: 'Astronomy Picture of the Day', info: null });
+      buildSlides();
+      document.getElementById('counter').textContent =
+        String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    }
+  } catch(e) { /* fail silently */ }
+}
+
+// Load API data after 3 seconds — page is usable immediately
+setTimeout(() => { loadWildlife(); loadAPOD(); }, 3000);
+
+/* ═══════════════════════════════════════════════════════
    INFO DRAWER
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 function openDrawer() {
   const s = slides[cur];
-  if (!s.info) return;
+  if (!s || !s.info) return;
   document.getElementById('dTitle').textContent = s.name;
   document.getElementById('dLoc').textContent   = s.loc;
   document.getElementById('dGrid').innerHTML = `
     <div class="drawer-block">
       <h4>Classification</h4>
-      <p class="drawer-class">${s.info.classification.split('·').map(p=>`<span>${p.trim()}</span>`).join('<br>')}</p>
+      <p class="drawer-class">${s.info.classification.split('·').map(p => '<span>' + p.trim() + '</span>').join('<br>')}</p>
     </div>
     <div class="drawer-block">
       <h4>Description</h4>
@@ -785,45 +845,20 @@ function openDrawer() {
     </div>
     <div class="drawer-block">
       <h4>Five things worth knowing</h4>
-      <ul class="drawer-facts">${s.info.facts.map(f=>`<li>${f}</li>`).join('')}</ul>
-    </div>
-  `;
-  document.getElementById('infoDrawer').classList.add('open');
+      <ul class="drawer-facts">${s.info.facts.map(f => '<li>' + f + '</li>').join('')}</ul>
+    </div>`;
+  document.getElementById('drawer').classList.add('open');
   paused = true;
 }
 
 function closeDrawer() {
-  document.getElementById('infoDrawer').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
   paused = false;
 }
 
-/* ═══════════════════════════════════════════════════
-   NASA APOD
-   Get your free key at: https://api.nasa.gov
-   Replace DEMO_KEY below with your key
-═══════════════════════════════════════════════════ */
-async function fetchAPOD() {
-  const API_KEY = 'OlNNHhk3s5zIsgAxpc5TH8xI9blwswMXlZPGhhBL'; // ← REPLACE WITH YOUR FREE KEY FROM api.nasa.gov
-  try {
-    const r = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`);
-    if (!r.ok) return; // silently fail if rate-limited
-    const d = await r.json();
-    if (d.media_type === 'image') {
-      slides.unshift({ img: d.hdurl || d.url, isAPOD: true, title: d.title, date: d.date, name: d.copyright ? '© ' + d.copyright : 'NASA', loc: 'Astronomy Picture of the Day', info: null });
-      buildSlideEls();
-      showSlide(0);
-      startTimer();
-    }
-  } catch(e) { /* fail silently — site works without APOD */ }
-}
-fetchAPOD();
-
-/* ═══════════════════════════════════════════════════
-   MUSIC PLAYER
-═══════════════════════════════════════════════════ */
+/* MUSIC PLAYER */
 function toggleMp() {
-  const p = document.getElementById('mpPanel');
-  const d = document.getElementById('mpDot');
+  const p = document.getElementById('mpPanel'), d = document.getElementById('mpDot');
   p.classList.toggle('open');
   d.classList.toggle('on', p.classList.contains('open'));
 }
@@ -832,6 +867,10 @@ function swMp(el, id) {
   document.querySelectorAll('.mp-pane').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('mp-' + id).classList.add('active');
+}
+function doSearch() {
+  const q = document.getElementById('spSearch').value.trim();
+  if (q) window.open('https://open.spotify.com/search/' + encodeURIComponent(q), '_blank');
 }
 </script>
 </body>
